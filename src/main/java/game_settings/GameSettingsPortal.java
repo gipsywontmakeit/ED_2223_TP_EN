@@ -1,19 +1,23 @@
 package game_settings;
 
-public class GameSettingsPortal extends GameSettings {
-    
-    private int maxEnergy;
+import interfaces.IGameSettingsPortal;
 
-    public GameSettingsPortal(int energy, int maxEnergy) {
-        super(energy);
-        this.maxEnergy = maxEnergy;
-    }
+public class GameSettingsPortal extends GameSettings implements IGameSettingsPortal {
 
-    public int getMaxEnergy() {
-        return maxEnergy;
-    }
+        private int maxEnergy;
 
-    public void setMaxEnergy(int maxEnergy) {
-        this.maxEnergy = maxEnergy;
-    }
+        public GameSettingsPortal(int energy, int maxEnergy) {
+            super(energy);
+            this.maxEnergy = maxEnergy;
+        }
+
+        @Override
+        public int getMaxEnergy() {
+            return maxEnergy;
+        }
+
+        @Override
+        public void setMaxEnergy(int maxEnergy) {
+            this.maxEnergy = maxEnergy;
+        }
 }

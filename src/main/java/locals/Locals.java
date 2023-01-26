@@ -3,7 +3,7 @@ package locals;
 import enums.LocalType;
 import game_settings.GameSettings;
 
-public abstract class Locals extends GameSettings {
+public abstract class  Locals extends GameSettings {
     /**
      * id of the local
      */
@@ -34,7 +34,7 @@ public abstract class Locals extends GameSettings {
      * @param coordinates coordinates of the local
      */
     public Locals(int id, LocalType type, String name, Coordinates coordinates, GameSettings gameSettings) {
-        super(gameSettings.getEnergy());
+        super(0);
         this.id = id;
         this.type = type;
         this.name = name;

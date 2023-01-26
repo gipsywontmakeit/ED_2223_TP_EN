@@ -1,7 +1,9 @@
 package game_settings;
 
-public class GameSettingsConnector extends GameSettings {
-    
+import interfaces.IGameSettingsConnector;
+
+public class GameSettingsConnector extends GameSettings implements IGameSettingsConnector {
+
     private int cooldown;
 
     public GameSettingsConnector(int energy, int cooldown) {
@@ -9,11 +11,15 @@ public class GameSettingsConnector extends GameSettings {
         this.cooldown = cooldown;
     }
 
+    @Override
     public int getCooldown() {
-        return cooldown;
+        return this.cooldown;
     }
 
+    @Override
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
     }
 }
+
+
