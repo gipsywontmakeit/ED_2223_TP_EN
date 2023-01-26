@@ -4,16 +4,9 @@ import graphs.Graph;
 import lists.LinkedList;
 import locals.Coordinates;
 
-public interface IConnectors<T> {
-
-    public void addConnector(LinkedList<T> connector);
-
-    public void removeConnector(Graph<T> vertex);
-
-    public void updateConnector(Graph<T> oldVertex, Graph<T> newVertex);
-
-    public void listConnector();
-
+public interface IConnectors extends ILocals {
     public IGameSettingsConnector getGameSettingsConnector();
+
+    public void setGameSettingsConnector(IGameSettingsConnector gameSettingsConnector);
 
 }

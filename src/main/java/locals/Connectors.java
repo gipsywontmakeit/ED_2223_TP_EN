@@ -6,45 +6,33 @@ import game_settings.GameSettingsConnector;
 import graphs.Graph;
 import interfaces.IConnectors;
 import interfaces.IGameSettingsConnector;
+import interfaces.ILocals;
 import lists.ArrayUnorderedList;
 import lists.LinkedList;
 
-public class Connectors<T> extends Locals implements IConnectors<T> {
+public class Connectors extends Locals implements IConnectors {
 
-    private Graph<T> graph;
+    private IGameSettingsConnector gameSettingsConnector;
 
-    private LinkedList<T> connector;
-
-
-    public Connectors(Graph<T> graph, LinkedList<T> connectors) {
-        super(0, LocalType.Connector, null, null, new GameSettingsConnector(0, 0));
-        this.graph = new Graph<>();
-        this.connector = new LinkedList<>();
-    }
-
-
-    @Override
-    public void addConnector(LinkedList<T> connector) {
-        graph.addVertex((T) connector);
-    }
-
-    @Override
-    public void removeConnector(Graph<T> vertex) {
-
-    }
-
-    @Override
-    public void updateConnector(Graph<T> oldVertex, Graph<T> newVertex) {
-
-    }
-
-    @Override
-    public void listConnector() {
-
+    /**
+     * constructor of the class
+     *
+     * @param id          id of the local
+     * @param type        type of the local
+     * @param coordinates coordinates of the local
+     */
+    public Connectors(int id, LocalType type, Coordinates coordinates) {
+        super(id, type, coordinates);
+        this.gameSettingsConnector = new GameSettingsConnector(0,0);
     }
 
     @Override
     public IGameSettingsConnector getGameSettingsConnector() {
-        return null;
+        return this.gameSettingsConnector;
+    }
+
+    @Override
+    public void setGameSettingsConnector(IGameSettingsConnector gameSettingsConnector) {
+        this.gameSettingsConnector = gameSettingsConnector;
     }
 }
