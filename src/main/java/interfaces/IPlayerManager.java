@@ -1,6 +1,6 @@
 package interfaces;
 
-import Exceptions.PlayerNotFoundException;
+import exceptions.PlayerNotFoundException;
 import players.Players;
 
 /*

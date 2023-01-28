@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface IConnectors extends Local {
+public interface Connector extends Local {
     public IGameSettingsConnector getGameSettingsConnector();
 
     public void setGameSettingsConnector(IGameSettingsConnector gameSettingsConnector);

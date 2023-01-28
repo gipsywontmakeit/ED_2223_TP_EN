@@ -2,10 +2,10 @@ package locals;
 
 import enums.LocalType;
 import game_settings.GameSettingsConnector;
-import interfaces.IConnectors;
+import interfaces.Connector;
 import interfaces.IGameSettingsConnector;
 
-public class Connectors extends Locals implements IConnectors {
+public class Connectors extends Locals implements Connector {
 
     private IGameSettingsConnector gameSettingsConnector;
 

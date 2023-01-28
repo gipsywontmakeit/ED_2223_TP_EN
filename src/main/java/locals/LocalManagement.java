@@ -1,6 +1,6 @@
 package locals;
 
-import interfaces.IConnectors;
+import interfaces.Connector;
 import interfaces.ILocalManagement;
 import interfaces.Local;
 import interfaces.Portal;
@@ -10,8 +10,7 @@ import lists.ArrayUnorderedList;
 public class LocalManagement implements ILocalManagement {
 
     ArrayUnorderedList<Portal> portals;
-    ArrayUnorderedList<IConnectors> connectors;
-
+    ArrayUnorderedList<Connector> connectors;
     GraphMap<Local> graphMap;
 
     @Override
@@ -20,7 +19,9 @@ public class LocalManagement implements ILocalManagement {
         if(local instanceof Portals){
             portals.addToFront((Portal) local);
         } else if(local instanceof Connectors){
-            connectors.addToFront((IConnectors) local);
+            connectors.addToFront((Connector) local);
+        } else {
+            System.out.println("Local not added, not a valid type");
         }
 
     }
@@ -47,7 +48,7 @@ public class LocalManagement implements ILocalManagement {
             graphMap.addVertex(portal);
         }
 
-        for(IConnectors connector : connectors){
+        for(Connector connector : connectors){
             graphMap.addVertex(connector);
         }
 
