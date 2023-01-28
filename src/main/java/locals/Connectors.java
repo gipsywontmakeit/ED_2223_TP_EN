@@ -1,14 +1,9 @@
 package locals;
 
 import enums.LocalType;
-import game_settings.GameSettings;
 import game_settings.GameSettingsConnector;
-import graphs.Graph;
 import interfaces.IConnectors;
 import interfaces.IGameSettingsConnector;
-import interfaces.ILocals;
-import lists.ArrayUnorderedList;
-import lists.LinkedList;
 
 public class Connectors extends Locals implements IConnectors {
 

@@ -1,11 +1,10 @@
 package locals;
 
 import enums.LocalType;
-import game_settings.GameSettings;
 import interfaces.IGameSettingsPortal;
-import interfaces.IPortals;
+import interfaces.Portal;
 
-public class Portals extends Locals implements IPortals {
+public class Portals extends Locals implements Portal {
 
     private String name;
 
@@ -43,6 +42,14 @@ public class Portals extends Locals implements IPortals {
     @Override
     public void setGameSettingsPortal(IGameSettingsPortal gameSettingsPortal) {
         this.gameSettingsPortal = gameSettingsPortal;
+    }
+
+    @Override
+    public String toString() {
+        return "Portals{" +
+                "name='" + name + '\'' +
+                ", gameSettingsPortal=" + gameSettingsPortal +
+                '}';
     }
 }
 

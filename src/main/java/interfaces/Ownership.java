@@ -2,7 +2,7 @@ package interfaces;
 
 import players.Players;
 
-public interface IOwnership {
+public interface Ownership {
     public Players getOwner();
     public void setOwner(Players owner);
 }

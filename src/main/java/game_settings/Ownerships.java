@@ -1,12 +1,12 @@
 package game_settings;
 
-import interfaces.IOwnership;
+import interfaces.Ownership;
 import players.Players;
 
-public class Ownership implements IOwnership {
+public class Ownerships implements Ownership {
     private Players owner;
 
-    public Ownership(Players owner) {
+    public Ownerships(Players owner) {
         this.owner = owner;
     }
 

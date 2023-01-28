@@ -1,10 +1,9 @@
 package locals;
 
 import enums.LocalType;
-import game_settings.GameSettings;
-import interfaces.ILocals;
+import interfaces.Local;
 
-public abstract class Locals implements ILocals {
+public abstract class Locals implements Local {
 
     private int id;
     private LocalType type;
@@ -43,4 +42,12 @@ public abstract class Locals implements ILocals {
         this.coordinates = coordinates;
     }
 
+    @Override
+    public String toString() {
+        return "Locals{" +
+                "id=" + id +
+                ", type=" + type +
+                ", coordinates=" + coordinates +
+                '}';
+    }
 }

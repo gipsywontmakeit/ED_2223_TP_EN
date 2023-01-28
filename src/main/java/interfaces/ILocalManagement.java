@@ -3,9 +3,9 @@ package interfaces;
 public interface ILocalManagement {
 
     //crud locals
-    public void addLocal(ILocals local);
-    public void removeLocal(ILocals local);
-    public void updateLocal(ILocals local);
-    public ILocals getLocal(int id);
+    public void addLocal(Local local);
+    public void removeLocal(Local local);
+    public void updateLocal(Local local);
+    public Local getLocal(int id);
 
 }

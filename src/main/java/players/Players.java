@@ -1,7 +1,7 @@
 package players;
 
 import enums.Teams;
-import game_settings.Ownership;
+import game_settings.Ownerships;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public class Players {
     private Teams team;
     private int level,expereciencePoints,currentEnergy;
 
-    private List<Ownership> ownershipList;
+    private List<Ownerships> ownershipList;
 
     public Players(String name, Teams team) {
         this.name = name;
