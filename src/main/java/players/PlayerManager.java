@@ -1,9 +1,8 @@
 package players;
 
-import Exceptions.PlayerNotFoundException;
+import exceptions.PlayerNotFoundException;
 import interfaces.IPlayerManager;
 import lists.ArrayUnorderedList;
-import lists.UnorderedListADT;
 
 import java.util.Iterator;
 
