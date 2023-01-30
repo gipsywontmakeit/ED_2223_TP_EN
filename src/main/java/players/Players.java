@@ -8,7 +8,7 @@ import java.util.List;
 public class Players {
     private String name;
     private Teams team;
-    private int level,expereciencePoints,currentEnergy;
+    private int level,experiencePoints,currentEnergy;
 
     private List<Ownerships> ownershipList;
 
@@ -16,7 +16,7 @@ public class Players {
         this.name = name;
         this.team = team;
         this.level = 1;
-        this.expereciencePoints = 0;
+        this.experiencePoints = 0;
         this.currentEnergy = 100;
     }
 
@@ -76,17 +76,17 @@ public class Players {
      * Return the experience of the clients
      * @return
      */
-    public int getExpereciencePoints() {
-        return expereciencePoints;
+    public int getexperiencePoints() {
+        return experiencePoints;
     }
 
 
     /**
      * Defines the experience points from the player
-     * @param expereciencePoints
+     * @param experiencePoints
      */
-    public void setExpereciencePoints(int expereciencePoints) {
-        this.expereciencePoints = expereciencePoints;
+    public void setexperiencePoints(int experiencePoints) {
+        this.experiencePoints = experiencePoints;
     }
 
     /**
@@ -112,8 +112,10 @@ public class Players {
                 "name='" + name + '\'' +
                 ", team=" + team +
                 ", level=" + level +
-                ", expereciencePoints=" + expereciencePoints +
+                ", experiencePoints=" + experiencePoints +
                 ", currentEnergy=" + currentEnergy +
                 '}';
     }
+
+
 }
