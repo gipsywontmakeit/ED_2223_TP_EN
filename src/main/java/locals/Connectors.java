@@ -16,7 +16,7 @@ public class Connectors extends Locals implements Connector {
      * @param type        type of the local
      * @param coordinates coordinates of the local
      */
-    public Connectors(int id, LocalType type, Coordinates coordinates) {
+    public Connectors(int id, LocalType type, Coordinates coordinates, IGameSettingsConnector gameSettingsConnector) {
         super(id, type, coordinates);
         this.gameSettingsConnector = new GameSettingsConnector(0,0);
     }
