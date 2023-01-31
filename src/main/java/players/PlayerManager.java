@@ -5,8 +5,6 @@ import exceptions.PlayerNotFoundException;
 import interfaces.IPlayerManager;
 import lists.ArrayUnorderedList;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -104,7 +102,7 @@ public class PlayerManager implements IPlayerManager {
      * Lists all the players from the team we choose.
      * @param team parameter where we insert the team name
      */
-    public void listPlayerTeam(Teams team) {
+    public void listPlayers(Teams team) {
         if (!playersList.isEmpty()) {
             Iterator<Players> iterator = playersList.iterator();
             while (iterator.hasNext()) {
@@ -127,13 +125,8 @@ public class PlayerManager implements IPlayerManager {
             Iterator<Players> iterator = playersList.iterator();
             while (iterator.hasNext()){
                 Players player = iterator.next();
-
             }
         }
-    }
-
-    public static void listbyId(){
-
     }
 
     public ArrayUnorderedList<Players> getPlayersList() {

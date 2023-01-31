@@ -2,10 +2,11 @@ package players;
 
 import enums.Teams;
 import game_settings.Ownerships;
+import interfaces.Player;
 
 import java.util.List;
 
-public class Players {
+public class Players implements Player {
     private String name;
     private Teams team;
     private int level,experiencePoints,currentEnergy;
@@ -76,7 +77,7 @@ public class Players {
      * Return the experience of the clients
      * @return
      */
-    public int getexperiencePoints() {
+    public int getExperiencePoints() {
         return experiencePoints;
     }
 
@@ -85,7 +86,7 @@ public class Players {
      * Defines the experience points from the player
      * @param experiencePoints
      */
-    public void setexperiencePoints(int experiencePoints) {
+    public void setExperiencePoints(int experiencePoints) {
         this.experiencePoints = experiencePoints;
     }
 

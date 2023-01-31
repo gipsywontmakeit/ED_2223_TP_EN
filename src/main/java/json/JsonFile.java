@@ -46,7 +46,7 @@ public class JsonFile {
                     playerObject.put("name", player.getName());
                     playerObject.put("team", player.getTeam());
                     playerObject.put("level", player.getLevel());
-                    playerObject.put("experiencePoints", player.getexperiencePoints());
+                    playerObject.put("experiencePoints", player.getExperiencePoints());
                     playerObject.put("current_Energy", player.getCurrentEnergy());
                     jsonArray.add(playerObject);
                 }
