@@ -52,7 +52,7 @@ public class JsonFile {
                 }
                 jsonObject.put("players", jsonArray);
                 fileWriter.write(jsonObject.toString());
-                fileWriter.flush();
+                //fileWriter.flush();
                 fileWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
