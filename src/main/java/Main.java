@@ -27,6 +27,14 @@ public class Main {
 
         System.out.println(localManagement.getGraphMap().toString());
 
+        double lat1 = 40.7656918;
+        double lon1 = -73.9737489;
+        double lat2 = 40.7697989;
+        double lon2 = -73.9723702;
+
+        double distance = Haversine.haversine(lat1, lon1, lat2, lon2);
+        System.out.println("The distance between the two points is: " + String.valueOf(distance).replace(".0", "") + " meters");
+
     }
 
 }
