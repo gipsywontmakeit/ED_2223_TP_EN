@@ -1,73 +1,71 @@
 package json;
 
-import interfaces.IPlayerManager;
-import lists.ArrayUnorderedList;
-import lists.UnorderedListADT;
+
+
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import players.PlayerManager;
-import players.Players;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.Iterator;
-
+import java.io.*;
+import java.util.ArrayList;
 
 public class JsonFile {
-    private File file;
-    private PlayerManager playerManager;
+    private static final String FILE_NAME = "data.json";
+    private JSONObject jsonObject;
+    private final JSONParser jsonParser;
+    private FileWriter fileWriter;
+    private File data;
 
+    public JsonFile() {
+        jsonParser = new JSONParser();
+        jsonObject = new JSONObject();
+        createfile();
+    }
 
-
-    private final String fileName =  "data.json";
-
-    public void createFile() throws IOException {
-        file = new File(fileName);
-        if (!file.exists()) {
-            if (file.createNewFile()) {
-                System.out.println("File created: " + fileName);
+    private boolean createfile() {
+        data = new File(FILE_NAME);
+        try {
+            if (data.createNewFile()) {
+                return true;
             }
-        } else {
-            System.out.println("File already exists.");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return false;
     }
 
     public void addPlayer(PlayerManager playerManager) {
-        if (file.exists()) {
+        if (data.exists()) {
             try {
-                FileWriter fileWriter = new FileWriter(file);
-                JSONObject jsonObject = new JSONObject();
-                JSONArray jsonArray = new JSONArray();
-                ArrayUnorderedList<Players> dataplayer = playerManager.getPlayersList();
-                for(Players player:dataplayer){
-                    JSONObject playerObject = new JSONObject();
+                jsonObject = (JSONObject) jsonParser.parse(new FileReader(data.getPath()));
+                var listaAdd = new ArrayList<>();
+                var lista = (JSONArray) jsonObject.get("players");
+                var playersList = playerManager.getPlayersList();
+                for (var player : playersList) {
+                    var playerObject = new JSONObject();
+
                     playerObject.put("name", player.getName());
-                    playerObject.put("team", player.getTeam());
+                    playerObject.put("team", player.getTeam().toString());
                     playerObject.put("level", player.getLevel());
                     playerObject.put("experiencePoints", player.getExperiencePoints());
                     playerObject.put("current_Energy", player.getCurrentEnergy());
-                    jsonArray.add(playerObject);
+
+                    listaAdd.add(playerObject);
                 }
-                jsonObject.put("players", jsonArray);
-                fileWriter.write(jsonObject.toString());
-                //fileWriter.flush();
+                jsonObject.put("players", listaAdd);
+                lista.add(listaAdd);
+                var nemSeiOQueFaz = new JSONObject();
+                nemSeiOQueFaz.put("players", lista);
+
+                fileWriter = new FileWriter(data.getPath());
+                fileWriter.write(nemSeiOQueFaz.toJSONString());
                 fileWriter.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException | ParseException | NullPointerException e) {
+                System.out.println("Deu ruim");
             }
-
-
         }
     }
-
-
-
-
-
-
-
-
 }
-

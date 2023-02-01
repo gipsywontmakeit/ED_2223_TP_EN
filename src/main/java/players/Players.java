@@ -21,6 +21,15 @@ public class Players implements Player {
         this.currentEnergy = 100;
     }
 
+    public Players(String name, Teams team, Integer level) {
+        this.name = name;
+        this.team = team;
+        this.level = level;
+        this.experiencePoints = 0;
+        this.currentEnergy = 100;
+    }
+
+
 
     /**
      * Return the name of the player

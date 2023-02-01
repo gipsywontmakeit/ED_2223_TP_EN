@@ -3,6 +3,7 @@ package players;
 import enums.Teams;
 import exceptions.PlayerNotFoundException;
 import interfaces.IPlayerManager;
+import lists.ArrayOrderedList;
 import lists.ArrayUnorderedList;
 
 import java.util.Iterator;
@@ -119,15 +120,18 @@ public class PlayerManager implements IPlayerManager {
     /**
      * AINDA A ELABORAR
      */
-
+    /**
     public void listPlayerLevel(){
+
         if (!playersList.isEmpty()){
             Iterator<Players> iterator = playersList.iterator();
             while (iterator.hasNext()){
+                playersList.
                 Players player = iterator.next();
             }
         }
     }
+     */
 
     public ArrayUnorderedList<Players> getPlayersList() {
         return playersList;
