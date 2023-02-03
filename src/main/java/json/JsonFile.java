@@ -1,16 +1,15 @@
 package json;
 
-
-
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import players.PlayerManager;
+import players.Players;
+import players.Searching;
 
 import java.io.*;
-import java.util.ArrayList;
+
 
 public class JsonFile {
     private static final String FILE_NAME = "data.json";
@@ -19,13 +18,16 @@ public class JsonFile {
     private FileWriter fileWriter;
     private File data;
 
+
+
     public JsonFile() {
         jsonParser = new JSONParser();
         jsonObject = new JSONObject();
-        createfile();
+        createFile();
     }
 
-    private boolean createfile() {
+
+    private boolean createFile() {
         data = new File(FILE_NAME);
         try {
             if (data.createNewFile()) {
@@ -41,11 +43,11 @@ public class JsonFile {
         if (data.exists()) {
             try {
                 jsonObject = (JSONObject) jsonParser.parse(new FileReader(data.getPath()));
-                var listaAdd = new ArrayList<>();
-                var lista = (JSONArray) jsonObject.get("players");
+                JSONArray listaAdd = new JSONArray();
+                JSONArray lista = (JSONArray) jsonObject.get("players");
                 var playersList = playerManager.getPlayersList();
-                for (var player : playersList) {
-                    var playerObject = new JSONObject();
+                for (Players player : playersList) {
+                    JSONObject playerObject = new JSONObject();
 
                     playerObject.put("name", player.getName());
                     playerObject.put("team", player.getTeam().toString());
@@ -64,7 +66,7 @@ public class JsonFile {
                 fileWriter.write(nemSeiOQueFaz.toJSONString());
                 fileWriter.close();
             } catch (IOException | ParseException | NullPointerException e) {
-                System.out.println("Deu ruim");
+                System.out.println("Erro");
             }
         }
     }

@@ -3,10 +3,13 @@ package players;
 import enums.Teams;
 import exceptions.PlayerNotFoundException;
 import interfaces.IPlayerManager;
+import interfaces.Player;
 import lists.ArrayOrderedList;
 import lists.ArrayUnorderedList;
+import lists.UnorderedListADT;
 
 import java.util.Iterator;
+
 
 /**
  * The class used to Manage the players created
@@ -48,6 +51,7 @@ public class PlayerManager implements IPlayerManager {
      * @return
      * @throws PlayerNotFoundException
      */
+
 
     public Players findPlayerName(String name)throws PlayerNotFoundException {
         for (Players players : playersList) {
@@ -117,23 +121,27 @@ public class PlayerManager implements IPlayerManager {
         }
     }
 
-    /**
-     * AINDA A ELABORAR
-     */
-    /**
-    public void listPlayerLevel(){
+    public void listPlayersByLevel() {
 
-        if (!playersList.isEmpty()){
-            Iterator<Players> iterator = playersList.iterator();
-            while (iterator.hasNext()){
-                playersList.
-                Players player = iterator.next();
+        if (!playersList.isEmpty()) {
+            Players[] playersArray = new Players[playersList.size()];
+            int i = 0;
+            for (Players player : playersList) {
+                playersArray[i++] = player;
+            }
+            Searching.selectionSort(playersArray);
+            for (Player player : playersArray) {
+                System.out.println(player.toString());
             }
         }
-    }
-     */
+        }
+
+
+
+
 
     public ArrayUnorderedList<Players> getPlayersList() {
+
         return playersList;
     }
 

@@ -6,7 +6,7 @@ import interfaces.Player;
 
 import java.util.List;
 
-public class Players implements Player {
+public class Players implements Player,Comparable<Player> {
     private String name;
     private Teams team;
     private int level,experiencePoints,currentEnergy;
@@ -21,13 +21,14 @@ public class Players implements Player {
         this.currentEnergy = 100;
     }
 
-    public Players(String name, Teams team, Integer level) {
+    public Players(String name, Teams team, int level) {
         this.name = name;
         this.team = team;
         this.level = level;
         this.experiencePoints = 0;
         this.currentEnergy = 100;
     }
+
 
 
 
@@ -128,4 +129,10 @@ public class Players implements Player {
     }
 
 
+    @Override
+    public int compareTo(Player player) {
+            return Integer.compare(this.level, player.getLevel());
+        }
+
 }
+
