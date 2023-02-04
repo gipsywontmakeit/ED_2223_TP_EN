@@ -12,6 +12,7 @@ public class PlayerInteractionLinkedList extends LinkedList implements IPlayerIn
     private LinkedList<PlayerInteraction> interactionLinkedList;
 
 
+
     public PlayerInteractionLinkedList() {
         this.interactionLinkedList =  new LinkedList<>();
     }

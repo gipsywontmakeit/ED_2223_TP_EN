@@ -18,7 +18,7 @@ public class Main {
         GraphMap graphMap = new GraphMap();
         PlayerInteractionLinkedList playerInteractionLinkedList = new PlayerInteractionLinkedList();
 
-        Local local = new Portals(1, LocalType.Portal, new Coordinates(1, 2), "Portal 1", new GameSettingsPortal(1, 2, new Players("Ze", Teams.Giants)));
+        Local local = new Portals(1, LocalType.Portal, new Coordinates(1, 2), "Portal 1", new GameSettingsPortal(1, 2,new Players("nico",Teams.Giants)));
         local.setCoordinates(new Coordinates(2, 3));
         ILocalManagement localManagement = new LocalManagement();
 

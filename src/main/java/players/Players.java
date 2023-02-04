@@ -1,8 +1,8 @@
 package players;
 
 import enums.Teams;
-import game_settings.Ownerships;
 import interfaces.Player;
+import locals.GameSettingsPortal;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class Players implements Player,Comparable<Player> {
     private Teams team;
     private int level,experiencePoints,currentEnergy;
 
-    private List<Ownerships> ownershipList;
+    private List<GameSettingsPortal> ownershipList;
 
     public Players(String name, Teams team) {
         this.name = name;

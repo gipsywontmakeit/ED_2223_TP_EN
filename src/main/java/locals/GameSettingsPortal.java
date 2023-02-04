@@ -1,18 +1,21 @@
 package locals;
 
 import interfaces.IGameSettingsPortal;
+import interfaces.Ownership;
 import players.Players;
 
 public class GameSettingsPortal implements IGameSettingsPortal {
-
+    private Players players;
     private int energy;
     private int maxEnergy;
-    private Players owner;
 
-    public GameSettingsPortal(int energy, int maxEnergy, Players owner) {
+
+
+    public GameSettingsPortal(int energy, int maxEnergy, Players players) {
         this.energy = energy;
         this.maxEnergy = maxEnergy;
-        this.owner = owner;
+        this.players = players;
+
     }
 
     @Override
@@ -35,13 +38,14 @@ public class GameSettingsPortal implements IGameSettingsPortal {
         this.maxEnergy = maxEnergy;
     }
 
+
     @Override
     public Players getOwner() {
-        return this.owner;
+        return this.players;
     }
 
     @Override
     public void setOwner(Players owner) {
-        this.owner = owner;
+        this.players = players;
     }
 }

@@ -26,10 +26,10 @@ public class GameSettingsPortal extends GameSettings implements IGameSettingsPor
 
         @Override
         public Players getOwner() {
-            return ownership;
+            return this.ownership;
         }
         @Override
         public void setOwner(Players owner) {
-            this.ownership = owner;
+          this.ownership = owner;
         }
 }
