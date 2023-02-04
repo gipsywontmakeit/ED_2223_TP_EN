@@ -28,16 +28,18 @@ public class PlayerInteractionsTree {
     }
 
     public void addInteraction(Node node, PlayerInteraction interaction) {
-        if(node.data == interaction.getConnectorID()) {
+        int connectorID = interaction.getConnectorID();
+
+        if(node.data == connectorID) {
             node.interactions.addToRear(interaction);
-        } else if(node.data > interaction.getConnectorID()) {
+        } else if(node.data > connectorID) {
             if(node.left == null) {
-                node.left = new Node(interaction.getConnectorID());
+                node.left = new Node(connectorID);
             }
             addInteraction(node.left, interaction);
         } else {
             if(node.right == null) {
-                node.right = new Node(interaction.getConnectorID());
+                node.right = new Node(connectorID);
             }
             addInteraction(node.right, interaction);
         }
@@ -62,5 +64,12 @@ public class PlayerInteractionsTree {
         } else {
             return findNode(node.right, connectorID);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "PlayerInteractionsTree{" +
+                "root=" + root +
+                '}';
     }
 }
