@@ -1,6 +1,7 @@
 package players;
 
 import interfaces.Connector;
+import interfaces.IPlayerInteraction;
 import interfaces.Player;
 
 public class PlayerInteraction {
@@ -8,12 +9,11 @@ public class PlayerInteraction {
     Player player;
     Connector connector;
     String playerName;
-    int connectorID;
     long timestamp;
 
-    public PlayerInteraction(String playerName, int connectorID, long timestamp) {
+    public PlayerInteraction(String playerName, Connector connector, long timestamp) {
         this.playerName = playerName;
-        this.connectorID = connectorID;
+        this.connector = connector;
         this.timestamp = timestamp;
     }
 
@@ -22,7 +22,15 @@ public class PlayerInteraction {
     }
 
     public int getConnectorID() {
-        return connectorID = connector.getId();
+        return connector.getId();
     }
 
+    @Override
+    public String toString() {
+        return "PlayerInteraction{" +
+                "playerName='" + playerName + '\'' +
+                ", connectorID=" + connector +
+                ", timestamp=" + timestamp +
+                '}';
+    }
 }

@@ -6,6 +6,8 @@ import json.JsonFile;
 import java.io.IOException;
 import interfaces.*;
 import locals.*;
+import players.PlayerInteraction;
+import players.PlayerInteractionsTree;
 import players.Players;
 
 public class Main {
@@ -34,6 +36,11 @@ public class Main {
 
         double distance = Haversine.haversine(lat1, lon1, lat2, lon2);
         System.out.println("The distance between the two points is: " + String.valueOf(distance).replace(".0", "") + " meters");
+
+        PlayerInteraction playerInteraction = new PlayerInteraction("Ze", connector, 150);
+        PlayerInteractionsTree playerInteractionsTree = new PlayerInteractionsTree();
+        playerInteractionsTree.addInteraction(playerInteraction);
+        System.out.println(playerInteractionsTree);
 
     }
 
