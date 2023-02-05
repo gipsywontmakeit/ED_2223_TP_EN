@@ -1,18 +1,14 @@
 import enums.LocalType;
 import enums.Teams;
 import interfaces.Portal;
-import json.JsonFile;
 
 import java.io.IOException;
 import interfaces.*;
+import json.JsonFile;
 import locals.*;
 import players.PlayerInteraction;
-<<<<<<< HEAD
 import players.PlayerInteractionLinkedList;
 import players.PlayerManager;
-=======
-import players.PlayerInteractionsTree;
->>>>>>> ze-branch
 import players.Players;
 
 public class Main {
@@ -41,7 +37,7 @@ public class Main {
         playerManager.addPlayer(player4);
         playerManager.addPlayer(player6);
         //playerInteractionLinkedList.addInteraction(Movimento, player3);
-        json.addPlayer(playerManager);
+        //json.addPlayer(playerManager);
         //playerManager.listPlayersByLevel();
 
 
@@ -61,10 +57,6 @@ public class Main {
         double distance = Haversine.haversine(lat1, lon1, lat2, lon2);
         System.out.println("The distance between the two points is: " + String.valueOf(distance).replace(".0", "") + " meters");
 
-        PlayerInteraction playerInteraction = new PlayerInteraction("Ze", connector, 150);
-        PlayerInteractionsTree playerInteractionsTree = new PlayerInteractionsTree();
-        playerInteractionsTree.addInteraction(playerInteraction);
-        System.out.println(playerInteractionsTree);
 
     }
 
