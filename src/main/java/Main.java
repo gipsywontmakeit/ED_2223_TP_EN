@@ -8,11 +8,20 @@ import interfaces.*;
 import locals.*;
 import players.PlayerInteraction;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import players.PlayerInteractionLinkedList;
 import players.PlayerManager;
 =======
 import players.PlayerInteractionsTree;
 >>>>>>> ze-branch
+=======
+
+import players.PlayerInteractionLinkedList;
+import players.PlayerManager;
+
+import players.PlayerInteractionsTree;
+
+>>>>>>> nicolas-branch
 import players.Players;
 
 public class Main {
@@ -61,9 +70,15 @@ public class Main {
         double distance = Haversine.haversine(lat1, lon1, lat2, lon2);
         System.out.println("The distance between the two points is: " + String.valueOf(distance).replace(".0", "") + " meters");
 
+<<<<<<< HEAD
         PlayerInteraction playerInteraction = new PlayerInteraction("Ze", connector, 150);
         PlayerInteractionsTree playerInteractionsTree = new PlayerInteractionsTree();
         playerInteractionsTree.addInteraction(playerInteraction);
+=======
+        //PlayerInteraction playerInteraction = new PlayerInteraction("Ze", connector, 150);
+        PlayerInteractionsTree playerInteractionsTree = new PlayerInteractionsTree();
+        //playerInteractionsTree.addInteraction(playerInteraction);
+>>>>>>> nicolas-branch
         System.out.println(playerInteractionsTree);
 
     }

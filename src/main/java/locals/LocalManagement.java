@@ -20,6 +20,7 @@ public class LocalManagement implements ILocalManagement {
         this.graphMap.addVertex(local);
     }
 
+
     @Override
     public void removeLocal(Local local) {
         this.graphMap.removeVertex(local);

@@ -1,12 +1,13 @@
 package json;
 
+import enums.Teams;
+import lists.ArrayUnorderedList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import players.PlayerManager;
 import players.Players;
-import players.Searching;
 
 import java.io.*;
 
@@ -17,7 +18,7 @@ public class JsonFile {
     private final JSONParser jsonParser;
     private FileWriter fileWriter;
     private File data;
-
+    private static Players players;
 
 
     public JsonFile() {
@@ -59,15 +60,60 @@ public class JsonFile {
                 }
                 jsonObject.put("players", listaAdd);
                 lista.add(listaAdd);
-                var nemSeiOQueFaz = new JSONObject();
-                nemSeiOQueFaz.put("players", lista);
+                var addplayer = new JSONObject();
+                addplayer.put("players", lista);
 
                 fileWriter = new FileWriter(data.getPath());
-                fileWriter.write(nemSeiOQueFaz.toJSONString());
+                fileWriter.write(jsonObject.toJSONString());
                 fileWriter.close();
             } catch (IOException | ParseException | NullPointerException e) {
                 System.out.println("Erro");
             }
         }
     }
+
+    public ArrayUnorderedList<Players> readPlayerData(PlayerManager playerManager) {
+        ArrayUnorderedList<Players> playersList = new ArrayUnorderedList<>();
+        try {
+            jsonObject = (JSONObject) jsonParser.parse(new FileReader(data.getPath()));
+            JSONArray playersArray = (JSONArray) jsonObject.get("players");
+            for (Object playerObject : playersArray) {
+                if (playerObject instanceof JSONObject) {
+                    JSONObject playerJson = (JSONObject) playerObject;
+                    String name = (String) playerJson.get("name");
+                    String team = (String) playerJson.get("team");
+                    int level = ((Long) playerJson.get("level")).intValue();
+                    int experiencePoints = ((Long) playerJson.get("experiencePoints")).intValue();
+                    int currentEnergy = ((Long) playerJson.get("current_Energy")).intValue();
+                    Players player = new Players(name, getTeam(team), level, experiencePoints, currentEnergy);
+                    playersList.addToRear(player);
+
+
+                }
+
+            }
+            playerManager.setPlayersList(playersList);
+        } catch (IOException | ParseException e) {
+            System.out.println("Erro ao ler dados do jogador");
+        }
+        return playersList;
+    }
+
+
+
+
+
+    public static Teams getTeam(String team) {
+
+        switch (team) {
+            case "Giants":
+                return (Teams.Giants);
+            case "Sparks":
+                return Teams.Sparks;
+            default:
+                return null;
+        }
+    }
 }
+
+
