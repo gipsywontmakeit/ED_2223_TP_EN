@@ -3,15 +3,15 @@ package players;
 import enums.Teams;
 import game_settings.GameSettingsPortal;
 import interfaces.Player;
+import lists.ArrayUnorderedList;
 
-import java.util.List;
 
 public class Players implements Player,Comparable<Player> {
     private String name;
     private Teams team;
     private int level,experiencePoints,currentEnergy;
 
-    private List<GameSettingsPortal> ownershipList;
+    private ArrayUnorderedList<GameSettingsPortal> ownershipList;
 
     public Players(String name, Teams team) {
         this.name = name;
@@ -19,6 +19,7 @@ public class Players implements Player,Comparable<Player> {
         this.level = 1;
         this.experiencePoints = 0;
         this.currentEnergy = 100;
+        this.ownershipList = new ArrayUnorderedList<GameSettingsPortal>();
     }
 
     public Players(String name, Teams team, int level) {
@@ -27,6 +28,7 @@ public class Players implements Player,Comparable<Player> {
         this.level = level;
         this.experiencePoints = 0;
         this.currentEnergy = 100;
+        this.ownershipList = new ArrayUnorderedList<GameSettingsPortal>();
     }
 
     public Players(String name, Teams team, int level, int experiencePoints, int currentEnergy) {
@@ -35,6 +37,7 @@ public class Players implements Player,Comparable<Player> {
         this.level = level;
         this.experiencePoints = experiencePoints;
         this.currentEnergy = currentEnergy;
+        this.ownershipList = new ArrayUnorderedList<GameSettingsPortal>();
     }
 
 
@@ -139,6 +142,37 @@ public class Players implements Player,Comparable<Player> {
     public int compareTo(Player player) {
             return Integer.compare(this.level, player.getLevel());
         }
+
+    public void gainExperience(int level, int energy) {
+        double x = 0.2;
+        double y = 1.2;
+        int experience = (int) (Math.pow((level/x), y) * energy);
+        this.experiencePoints += experience;
+    }
+
+    public void rechargeEnergy(int energy) {
+        int maxEnergy = 100;
+        if(this.currentEnergy + energy > maxEnergy) {
+            this.currentEnergy = maxEnergy;
+        } else {
+            this.currentEnergy += energy;
+        }
+    }
+
+    public boolean conquerPortal(GameSettingsPortal portal, int energy) {
+        if(portal.getEnergy() < energy) {
+            portal.setEnergy(energy);
+            portal.setOwner(this);
+            this.ownershipList.addToRear(portal);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+
 
 }
 

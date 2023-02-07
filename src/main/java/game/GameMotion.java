@@ -17,6 +17,7 @@ public class GameMotion {
     }
 
     public void playerMoves(Player player, Connector fromConnector, Connector toConnector) {
-        int xpGain = player.getExperiencePoints() + 10;
+        
+
     }
 }

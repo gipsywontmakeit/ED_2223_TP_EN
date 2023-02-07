@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 import interfaces.*;
 import json.JsonFile;
+import lists.ArrayUnorderedList;
 import locals.*;
 import players.*;
 
@@ -40,6 +41,7 @@ public class Main {
         Connector connector = new Connectors(2, LocalType.Connector, new Coordinates(1, 2), new GameSettingsConnector(1, 2));
         //PlayerInteraction Movimento = new PlayerInteraction("Manel",1,10);
 
+        ArrayUnorderedList<GameSettingsPortal> realPortals = new ArrayUnorderedList<>();
 
         playerManager.addPlayer(player5);
         playerManager.addPlayer(player3);
