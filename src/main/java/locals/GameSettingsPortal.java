@@ -34,15 +34,14 @@ public class GameSettingsPortal implements IGameSettingsPortal {
     @Override
     public void setMaxEnergy(int maxEnergy) {this.maxEnergy = maxEnergy;}
 
+    @Override
+    public Players getOwner() {
+        return this.players;
+    }
 
-        @Override
-        public Players getOwner() {
-            return this.players;
-        }
-
-        @Override
-        public void setOwner(Players owner){
-            this.players = players;
-        }
+    @Override
+    public void setOwner(Players owner){
+        this.players = players;
+    }
 
 }

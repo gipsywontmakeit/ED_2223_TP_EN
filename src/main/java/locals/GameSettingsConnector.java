@@ -19,6 +19,11 @@ public class GameSettingsConnector implements IGameSettingsConnector {
     }
 
     @Override
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
+
+    @Override
     public int getCooldown() {
         return this.cooldown;
     }
