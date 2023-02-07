@@ -20,6 +20,7 @@ public class GameSettingsConnector extends GameSettings implements IGameSettings
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
     }
+
 }
 
 
