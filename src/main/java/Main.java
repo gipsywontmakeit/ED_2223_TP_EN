@@ -5,13 +5,12 @@ import game_settings.GameSettingsPortal;
 import interfaces.Portal;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+
 import interfaces.*;
 import json.JsonFile;
 import locals.*;
-import players.PlayerInteraction;
-
-import players.PlayerInteractionLinkedList;
-import players.PlayerManager;
+import players.*;
 
 
 import players.PlayerInteractionLinkedList;
@@ -19,8 +18,6 @@ import players.PlayerManager;
 
 import players.PlayerInteractionLinkedList;
 import players.PlayerManager;
-
-import players.Players;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -38,6 +35,7 @@ public class Main {
         Players player4 = new Players("fra", Teams.Giants,3);
         Players player5 = new Players("TESTEEEEEEEEEEEEEEEEEEEEEEE", Teams.Giants);
         Players player6 = new Players("tuts", Teams.Giants, 2);
+        Players player7 = new Players("abcd", Teams.Giants, 2, 200, 100);
         Portal portal = new Portals(1, LocalType.Portal, new Coordinates(1,  2), "Portal 1", new GameSettingsPortal(1, 2, player3));
         Connector connector = new Connectors(2, LocalType.Connector, new Coordinates(1, 2), new GameSettingsConnector(1, 2));
         //PlayerInteraction Movimento = new PlayerInteraction("Manel",1,10);
@@ -47,9 +45,9 @@ public class Main {
         playerManager.addPlayer(player3);
         playerManager.addPlayer(player4);
         playerManager.addPlayer(player6);
-        //playerInteractionLinkedList.addInteraction(Movimento, player3);
-        //json.addPlayer(playerManager);
-        //playerManager.listPlayersByLevel();
+        playerManager.addPlayer(player7);
+        PlayerInteraction playerInteraction = new PlayerInteraction(player7, connector, player7.getCurrentEnergy(), 1 + 2);
+        InteractionRecord interactionRecord = new InteractionRecord(player7, LocalDateTime.now());
 
 
         localManagement.addLocal(portal);
