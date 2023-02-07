@@ -7,8 +7,12 @@ import java.io.IOException;
 import interfaces.*;
 import locals.*;
 import players.PlayerInteraction;
+
 import players.PlayerInteractionLinkedList;
 import players.PlayerManager;
+
+import players.PlayerInteractionsTree;
+
 import players.Players;
 
 public class Main {
@@ -18,7 +22,7 @@ public class Main {
         GraphMap graphMap = new GraphMap();
         PlayerInteractionLinkedList playerInteractionLinkedList = new PlayerInteractionLinkedList();
 
-        Local local = new Portals(1, LocalType.Portal, new Coordinates(1, 2), "Portal 1", new GameSettingsPortal(1, 2, new Players("Ze", Teams.Giants)));
+        Local local = new Portals(1, LocalType.Portal, new Coordinates(1, 2), "Portal 1", new GameSettingsPortal(1, 2,new Players("nico",Teams.Giants)));
         local.setCoordinates(new Coordinates(2, 3));
         ILocalManagement localManagement = new LocalManagement();
 
@@ -29,14 +33,14 @@ public class Main {
         Players player6 = new Players("tuts", Teams.Giants, 2);
         Portal portal = new Portals(1, LocalType.Portal, new Coordinates(1,  2), "Portal 1", new GameSettingsPortal(1, 2, player3));
         Connector connector = new Connectors(2, LocalType.Connector, new Coordinates(1, 2), new GameSettingsConnector(1, 2));
-        PlayerInteraction Movimento = new PlayerInteraction("Manel",1,10);
+        //PlayerInteraction Movimento = new PlayerInteraction("Manel",1,10);
 
 
         playerManager.addPlayer(player5);
         playerManager.addPlayer(player3);
         playerManager.addPlayer(player4);
         playerManager.addPlayer(player6);
-        playerInteractionLinkedList.addInteraction(Movimento, player3);
+        //playerInteractionLinkedList.addInteraction(Movimento, player3);
         json.addPlayer(playerManager);
         //playerManager.listPlayersByLevel();
 
@@ -56,6 +60,11 @@ public class Main {
 
         double distance = Haversine.haversine(lat1, lon1, lat2, lon2);
         System.out.println("The distance between the two points is: " + String.valueOf(distance).replace(".0", "") + " meters");
+
+        //PlayerInteraction playerInteraction = new PlayerInteraction("Ze", connector, 150);
+        PlayerInteractionsTree playerInteractionsTree = new PlayerInteractionsTree();
+        //playerInteractionsTree.addInteraction(playerInteraction);
+        System.out.println(playerInteractionsTree);
 
     }
 

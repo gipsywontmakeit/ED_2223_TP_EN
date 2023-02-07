@@ -87,6 +87,10 @@ public class PlayerManager implements IPlayerManager {
         }
     }
 
+    public void setPlayersList(ArrayUnorderedList<Players> playersList) {
+        this.playersList = playersList;
+    }
+
     /**
      * List all the players whit an iterator
      */

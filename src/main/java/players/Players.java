@@ -29,7 +29,13 @@ public class Players implements Player,Comparable<Player> {
         this.currentEnergy = 100;
     }
 
-
+    public Players(String name, Teams team, int level, int experiencePoints, int currentEnergy) {
+        this.name = name;
+        this.team = team;
+        this.level = level;
+        this.experiencePoints = experiencePoints;
+        this.currentEnergy = currentEnergy;
+    }
 
 
     /**
