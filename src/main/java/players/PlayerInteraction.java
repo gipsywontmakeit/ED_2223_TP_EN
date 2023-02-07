@@ -8,13 +8,15 @@ public class PlayerInteraction {
     private Player player;
     private Connector connector;
 
-    private int EnergyLevelBefore;
+    private int energyLevelBefore;
 
-    private int EnergyLevelAfter;
+    private int energyLevelAfter;
 
-    public PlayerInteraction(Player player, Connector connector) {
+    public PlayerInteraction(Player player, Connector connector, int energyLevelBefore, int energyLevelAfter) {
         this.player = player;
         this.connector = connector;
+        this.energyLevelBefore = energyLevelBefore;
+        this.energyLevelAfter = energyLevelAfter;
     }
 
 
@@ -24,6 +26,14 @@ public class PlayerInteraction {
 
     public Connector getConnector() {
         return this.connector;
+    }
+
+    public int getEnergyLevelBefore() {
+        return this.energyLevelBefore;
+    }
+
+    public int getEnergyLevelAfter() {
+        return this.energyLevelAfter;
     }
 
 }
