@@ -1,24 +1,27 @@
 package locals;
 
 import enums.LocalType;
+import exceptions.CooldownTimeException;
 import game_settings.GameSettingsConnector;
 import interfaces.Connector;
 import interfaces.IGameSettingsConnector;
 import lists.ArrayOrderedList;
+import lists.ArrayUnorderedList;
 import players.InteractionRecord;
 import players.Players;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Connectors extends Locals implements Connector {
 
     private IGameSettingsConnector gameSettingsConnector;
-    private ArrayOrderedList<InteractionRecord> interactionRecords;
+    private ArrayUnorderedList<InteractionRecord> interactionRecords;
 
     private Connector lastInteraction;
 
     /**
-     * constructor of the class
+     * constructor of the classs
      *
      * @param id          id of the local
      * @param type        type of the local
@@ -27,7 +30,7 @@ public class Connectors extends Locals implements Connector {
     public Connectors(int id, LocalType type, Coordinates coordinates, IGameSettingsConnector gameSettingsConnector) {
         super(id, type, coordinates);
         this.gameSettingsConnector = new GameSettingsConnector(0,0);
-        this.interactionRecords = new ArrayOrderedList<>();
+        this.interactionRecords = new ArrayUnorderedList<>();
     }
 
     @Override
@@ -40,26 +43,18 @@ public class Connectors extends Locals implements Connector {
         this.gameSettingsConnector = gameSettingsConnector;
     }
 
-    public void addInteractionRecord(Players player) {
-        this.interactionRecords.add(new InteractionRecord(player, LocalDateTime.now()));
-    }
-
-    public ArrayOrderedList<InteractionRecord> getInteractionRecords() {
-        return this.interactionRecords;
-    }
-
-    public void removeInteractionRecord(InteractionRecord interactionRecord) {
-        this.interactionRecords.remove(interactionRecord);
-    }
-
-    public InteractionRecord getLastInteraction(Players player) {
-       InteractionRecord lastInteraction = null;
+    public void addInteraction(Players player) throws CooldownTimeException {
         for (InteractionRecord interaction : this.interactionRecords) {
             if (interaction.getPlayer().equals(player)) {
-                lastInteraction = interaction;
+                Duration duration = Duration.between(interaction.getTime(), LocalDateTime.now());
+                if(duration.toMillis() < this.gameSettingsConnector.getCooldown()) {
+                    throw new CooldownTimeException("You have to wait " + (this.gameSettingsConnector.getCooldown() - duration.toMillis()) + " milliseconds to interact again with this connector");
+                }
+                interactionRecords.remove(interaction);
+                break;
             }
         }
-        return lastInteraction;
+        interactionRecords.addToRear(new InteractionRecord(player, LocalDateTime.now()));
     }
 
 }

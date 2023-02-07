@@ -18,6 +18,10 @@ public class InteractionRecord {
     public Player getPlayer() {
         return player;
     }
+
+    public LocalDateTime getTime() {
+        return time;
+    }
 }
 
 
