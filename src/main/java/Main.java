@@ -1,5 +1,7 @@
 import enums.LocalType;
 import enums.Teams;
+import game_settings.GameSettingsConnector;
+import game_settings.GameSettingsPortal;
 import interfaces.Portal;
 
 import java.io.IOException;

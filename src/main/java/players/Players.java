@@ -1,8 +1,8 @@
 package players;
 
 import enums.Teams;
+import game_settings.GameSettingsPortal;
 import interfaces.Player;
-import locals.GameSettingsPortal;
 
 import java.util.List;
 
