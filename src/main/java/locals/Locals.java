@@ -1,9 +1,9 @@
 package locals;
 
 import enums.LocalType;
-import interfaces.Local;
+import interfaces.ILocal;
 
-public abstract class Locals implements Local {
+public abstract class Locals implements ILocal {
 
     private int id;
     private LocalType type;

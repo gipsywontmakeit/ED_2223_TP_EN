@@ -2,11 +2,11 @@ package players;
 
 import enums.Teams;
 import game_settings.GameSettingsPortal;
-import interfaces.Player;
+import interfaces.IPlayer;
 
 import java.util.List;
 
-public class Players implements Player,Comparable<Player> {
+public class Players implements IPlayer,Comparable<IPlayer> {
     private String name;
     private Teams team;
     private int level,experiencePoints,currentEnergy;
@@ -136,7 +136,7 @@ public class Players implements Player,Comparable<Player> {
 
 
     @Override
-    public int compareTo(Player player) {
+    public int compareTo(IPlayer player) {
             return Integer.compare(this.level, player.getLevel());
         }
 

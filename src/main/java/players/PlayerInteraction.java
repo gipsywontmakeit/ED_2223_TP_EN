@@ -1,18 +1,18 @@
 package players;
 
-import interfaces.Connector;
-import interfaces.Player;
+import interfaces.IConnector;
+import interfaces.IPlayer;
 
 public class PlayerInteraction {
 
-    private Player player;
-    private Connector connector;
+    private IPlayer player;
+    private IConnector connector;
 
     private int energyLevelBefore;
 
     private int energyLevelAfter;
 
-    public PlayerInteraction(Player player, Connector connector, int energyLevelBefore, int energyLevelAfter) {
+    public PlayerInteraction(IPlayer player, IConnector connector, int energyLevelBefore, int energyLevelAfter) {
         this.player = player;
         this.connector = connector;
         this.energyLevelBefore = energyLevelBefore;
@@ -20,11 +20,11 @@ public class PlayerInteraction {
     }
 
 
-    public Player getPlayer() {
+    public IPlayer getPlayer() {
         return this.player;
     }
 
-    public Connector getConnector() {
+    public IConnector getConnector() {
         return this.connector;
     }
 

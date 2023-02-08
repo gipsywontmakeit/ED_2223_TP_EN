@@ -1,21 +1,20 @@
 package players;
 
-import interfaces.Player;
-import lists.ArrayOrderedList;
+import interfaces.IPlayer;
 
 import java.time.LocalDateTime;
 
 public class InteractionRecord {
 
-    private Player player;
+    private IPlayer player;
     private LocalDateTime time;
 
-    public InteractionRecord(Player player, LocalDateTime time) {
+    public InteractionRecord(IPlayer player, LocalDateTime time) {
         this.player = player;
         this.time = time;
     }
 
-    public Player getPlayer() {
+    public IPlayer getPlayer() {
         return player;
     }
 }
