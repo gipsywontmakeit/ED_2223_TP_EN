@@ -2,13 +2,15 @@ package locals;
 
 import graphs.Graph;
 import interfaces.GraphMapADT;
-import interfaces.ILocalManagement;
-import interfaces.Local;
 import lists.ArrayUnorderedList;
+import queues.LinkedQueue;
+
+import java.util.Iterator;
 
 public class GraphMap<T> extends Graph<T> implements GraphMapADT<T> {
-
+    private Graph<Locals> locais;
     LocalManagement localManagement;
+    private int[][] edges;
 
     @Override
     public void updateVertex(T vertex, T newVertex) {
@@ -30,7 +32,7 @@ public class GraphMap<T> extends Graph<T> implements GraphMapADT<T> {
         result += "index\t";
 
         for (int i = 0; i < numVertices; i++) {
-            result += "" + i;
+            result  += "" + i;
             if (i < 10)
                 result += " ";
         }
@@ -70,12 +72,43 @@ public class GraphMap<T> extends Graph<T> implements GraphMapADT<T> {
         return verticesList;
     }
 
-    public void printAllVertices() {
-        ArrayUnorderedList<Locals> objects = (ArrayUnorderedList<Locals>) getAllVertices();
-        for (Locals object : objects) {
-            System.out.println(object);
+
+    public Iterator<T> iteratorShortestPath(T startVertex, T targetVertex) {
+        int startIndex = getIndex(startVertex);
+        int targetIndex = getIndex(targetVertex);
+        boolean[] visited = new boolean[vertices.length];
+        int[] previous = new int[vertices.length];
+        for (int i = 0; i < previous.length; i++) {
+            previous[i] = -1;
         }
+        LinkedQueue<Integer> queue = new LinkedQueue<>();
+        queue.enqueue(startIndex);
+        visited[startIndex] = true;
+        while (!queue.isEmpty()) {
+            int currentIndex = queue.dequeue();
+            if (currentIndex == targetIndex) {
+                break;
+            }
+            for (int i = 0; i < vertices.length; i++) {
+                if (edges[currentIndex][i] != 0 && !visited[i]) {
+                    queue.enqueue(i);
+                    visited[i] = true;
+                    previous[i] = currentIndex;
+                }
+            }
+        }
+        ArrayUnorderedList<T> shortestPath = new ArrayUnorderedList<>();
+        int currentIndex = targetIndex;
+        while (currentIndex != -1) {
+            shortestPath.addToRear(vertices[currentIndex]);
+            currentIndex = previous[currentIndex];
+        }
+        return shortestPath.iterator();
     }
+
+
+
+
 }
 
 

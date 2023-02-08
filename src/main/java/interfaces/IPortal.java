@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface Portal extends Local {
+public interface IPortal extends ILocal {
 
     public String getName();
 

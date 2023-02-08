@@ -1,7 +1,6 @@
 package game_settings;
 
 import interfaces.IGameSettingsPortal;
-import interfaces.Ownership;
 import players.Players;
 
 public class GameSettingsPortal extends GameSettings implements IGameSettingsPortal {

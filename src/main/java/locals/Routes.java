@@ -1,8 +1,8 @@
 package locals;
 
-import interfaces.Route;
+import interfaces.IRoute;
 
-public class Routes implements Route {
+public class Routes implements IRoute {
         private int from;
         private int to;
         private int distance;

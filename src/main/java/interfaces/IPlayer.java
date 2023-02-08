@@ -2,7 +2,7 @@ package interfaces;
 
 import enums.Teams;
 
-public interface Player {
+public interface IPlayer {
     public String getName();
     public void setName(String name);
     public Teams getTeam();
