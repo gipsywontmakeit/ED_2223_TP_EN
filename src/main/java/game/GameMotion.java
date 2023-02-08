@@ -5,6 +5,9 @@ import interfaces.IConnector;
 import interfaces.IPlayer;
 import interfaces.IPortal;
 import lists.ArrayUnorderedList;
+import queues.LinkedQueue;
+import queues.QueueADT;
+
 
 public class GameMotion {
     private ArrayUnorderedList<IPlayer> players;
@@ -20,7 +23,7 @@ public class GameMotion {
     }
 
     public void playerMoves(IPlayer player, IConnector fromConnector, IConnector toConnector) {
-        
-
     }
+
+
 }
