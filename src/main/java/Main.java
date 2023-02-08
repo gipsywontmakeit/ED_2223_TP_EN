@@ -66,6 +66,11 @@ public class Main {
         graphMap.addEdge(connector2, portal2);
         graphMap.addEdge(portal2, connector3);
 
+
+
+
+
+
         ArrayUnorderedList<ILocal> list = ShortestPath.shortestPath(graphMap, portal1, portal3);
         for(ILocal local : list){
             System.out.println(local);
