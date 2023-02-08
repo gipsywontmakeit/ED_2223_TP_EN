@@ -1,10 +1,8 @@
 package json;
 
 import enums.Teams;
-import graphs.Graph;
 import lists.ArrayUnorderedList;
 import locals.LocalManagement;
-import locals.Locals;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -16,7 +14,9 @@ import java.io.*;
 
 
 public class JsonFile {
-    private static final String FILE_NAME = "data.json";
+    private static final String FILE_CREATED = "data.json";
+
+    private static final String EXISTING_FILE = "*.json";
     private JSONObject jsonObject;
     private final JSONParser jsonParser;
     private FileWriter fileWriter;
@@ -32,7 +32,7 @@ public class JsonFile {
 
 
     private boolean createFile() {
-        data = new File(FILE_NAME);
+        data = new File(FILE_CREATED);
         try {
             if (data.createNewFile()) {
                 return true;
@@ -74,7 +74,7 @@ public class JsonFile {
         }
     }
 
-    public ArrayUnorderedList<Players> readPlayerData(PlayerManager playerManager) {
+    public ArrayUnorderedList<Players> readPlayerData(String filename, PlayerManager playerManager) {
         ArrayUnorderedList<Players> playersList = new ArrayUnorderedList<>();
         try {
             jsonObject = (JSONObject) jsonParser.parse(new FileReader(data.getPath()));
@@ -89,7 +89,6 @@ public class JsonFile {
                     int currentEnergy = ((Long) playerJson.get("current_Energy")).intValue();
                     Players player = new Players(name, getTeam(team), level, experiencePoints, currentEnergy,null);
                     playersList.addToRear(player);
-
 
                 }
 

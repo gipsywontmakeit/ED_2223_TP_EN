@@ -59,9 +59,9 @@ public class Connectors extends Locals implements IConnector {
 
     @Override
     public String toString() {
-        return "Connectors{" +
+        return super.toString() + "Connectors[" +
                 "gameSettingsConnector=" + gameSettingsConnector +
-                '}';
+                ']';
     }
 }
 

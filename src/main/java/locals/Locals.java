@@ -44,10 +44,10 @@ public abstract class Locals implements ILocal {
 
     @Override
     public String toString() {
-        return "Locals{" +
+        return "Locals[" +
                 "id=" + id +
                 ", type=" + type +
                 ", coordinates=" + coordinates +
-                '}';
+                ']';
     }
 }

@@ -13,4 +13,8 @@ public interface IPlayer {
     public void setExperiencePoints(int experiencePoints);
     public int getCurrentEnergy();
     public void setCurrentEnergy(int currentEnergy);
+
+    public ILocal getCurrentLocal();
+
+    public void setCurrentLocal(ILocal currentLocal);
 }

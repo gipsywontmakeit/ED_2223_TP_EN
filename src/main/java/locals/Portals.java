@@ -46,7 +46,7 @@ public class Portals extends Locals implements IPortal {
 
     @Override
     public String toString() {
-        return "Portals{" +
+        return super.toString() + "Portals{" +
                 "name='" + name + '\'' +
                 ", gameSettingsPortal=" + gameSettingsPortal +
                 '}';

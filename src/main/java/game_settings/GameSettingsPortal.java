@@ -5,40 +5,32 @@ import players.Players;
 
 public class GameSettingsPortal extends GameSettings implements IGameSettingsPortal {
 
-        private int maxEnergy;
-        private Players ownership;
+    private Players owner;
+    private int maxEnergy;
 
-
-        public GameSettingsPortal(int energy, int maxEnergy, Players ownership) {
-            super(energy);
-            this.maxEnergy = maxEnergy;
-            this.ownership = ownership;
-        }
-
-        @Override
-        public int getMaxEnergy() {
-            return maxEnergy;
-        }
-
-        @Override
-        public void setMaxEnergy(int maxEnergy) {
-            this.maxEnergy = maxEnergy;
-        }
-
-        @Override
-        public Players getOwner() {
-            return this.ownership;
-        }
-        @Override
-        public void setOwner(Players owner) {
-          this.ownership = owner;
-        }
+    public GameSettingsPortal(int energy, int maxEnergy,Players owner) {
+        super(energy);
+        this.maxEnergy = energy;
+        this.owner = owner;
+    }
 
     @Override
-    public String toString() {
-        return "GameSettingsPortal{" +
-                "maxEnergy=" + maxEnergy +
-                ", ownership=" + ownership +
-                '}';
+    public int getMaxEnergy() {
+        return this.maxEnergy;
+    }
+
+    @Override
+    public void setMaxEnergy(int maxEnergy) {
+        this.maxEnergy = maxEnergy;
+    }
+
+    @Override
+    public Players getOwner() {
+        return this.owner;
+    }
+
+    @Override
+    public void setOwner(Players owner) {
+        this.owner = owner;
     }
 }

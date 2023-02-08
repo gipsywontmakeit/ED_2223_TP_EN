@@ -1,33 +1,41 @@
 package players;
 
 import enums.Teams;
-import game_settings.GameSettingsPortal;
 
+import interfaces.IConnector;
 import interfaces.ILocal;
+import interfaces.IPortal;
 import lists.ArrayUnorderedList;
 
 import interfaces.IPlayer;
-import locals.Locals;
 
 
 public class Players implements IPlayer,Comparable<IPlayer> {
     private String name;
     private Teams team;
     private int level,experiencePoints,currentEnergy;
-    private ILocal current;
-
     public ILocal currentLocal;
 
-    private ArrayUnorderedList<GameSettingsPortal> ownershipList;
+    private ArrayUnorderedList<IPortal> ownershipList;
 
-    public Players(String name, Teams team, ILocal current) {
+    public Players(){
+        this.name = null;
+        this.team = null;
+        this.level = 1;
+        this.experiencePoints = 0;
+        this.currentEnergy = 100;
+        this.ownershipList = new ArrayUnorderedList<IPortal>();
+        this.currentLocal = null;
+    }
+
+    public Players(String name, Teams team, ILocal currentLocal) {
         this.name = name;
         this.team = team;
         this.level = 1;
         this.experiencePoints = 0;
         this.currentEnergy = 100;
-        this.ownershipList = new ArrayUnorderedList<GameSettingsPortal>();
-        this.current = current;
+        this.ownershipList = new ArrayUnorderedList<IPortal>();
+        this.currentLocal = currentLocal;
     }
 
     public Players(String name, Teams team, int level) {
@@ -36,25 +44,26 @@ public class Players implements IPlayer,Comparable<IPlayer> {
         this.level = level;
         this.experiencePoints = 0;
         this.currentEnergy = 100;
-        this.ownershipList = new ArrayUnorderedList<GameSettingsPortal>();
+        this.ownershipList = new ArrayUnorderedList<IPortal>();
     }
 
-    public ILocal getCurrent() {
-        return current;
+    public Players(String name, Teams team) {
+        this.name = name;
+        this.team = team;
+        this.level = 1;
+        this.experiencePoints = 0;
+        this.currentEnergy = 100;
+        this.ownershipList = new ArrayUnorderedList<IPortal>();
     }
 
-    public void setCurrent(ILocal current) {
-        this.current = current;
-    }
-
-    public Players(String name, Teams team, int level, int experiencePoints, int currentEnergy, Locals current) {
+    public Players(String name, Teams team, int level, int experiencePoints, int currentEnergy, ILocal currentLocal) {
         this.name = name;
         this.team = team;
         this.level = level;
         this.experiencePoints = experiencePoints;
         this.currentEnergy = currentEnergy;
-        this.ownershipList = new ArrayUnorderedList<GameSettingsPortal>();
-        this.current = null;
+        this.ownershipList = new ArrayUnorderedList<IPortal>();
+        this.currentLocal = null;
     }
 
 
@@ -179,24 +188,36 @@ public class Players implements IPlayer,Comparable<IPlayer> {
         this.experiencePoints += experience;
     }
 
-    public void rechargeEnergy(int energy) {
-        int maxEnergy = 100;
-        if(this.currentEnergy + energy > maxEnergy) {
+    public void rechargeEnergy(IConnector connector) {
+        int maxEnergy = this.getCurrentEnergy();
+        int energyStoredInConnector = connector.getGameSettingsConnector().getEnergy();
+        if(this.currentEnergy + energyStoredInConnector > maxEnergy) {
             this.currentEnergy = maxEnergy;
         } else {
-            this.currentEnergy += energy;
+            this.currentEnergy += energyStoredInConnector;
         }
     }
 
-    public boolean conquerPortal(GameSettingsPortal portal, int energy) {
-        if(portal.getEnergy() < energy) {
-            portal.setEnergy(energy);
-            portal.setOwner(this);
-            this.ownershipList.addToRear(portal);
+    public boolean conquerPortal(IPortal portal, int energy) {
+        int playerEnergy = this.getCurrentEnergy();
+        if (playerEnergy < energy) {
+            System.out.println("Not enough energy to conquer the portal.");
+            return false;
+        } else if (portal.getGameSettingsPortal().getEnergy() < energy) {
+            playerEnergy -= energy;
+            portal.getGameSettingsPortal().setEnergy(energy);
+            portal.getGameSettingsPortal().setOwner(this);
+            ownershipList.addToRear(portal);
+            System.out.println("You successfully conquered the portal!");
             return true;
         } else {
+            System.out.println("Not enough energy to conquer the portal.");
             return false;
         }
+    }
+
+    public void move(ILocal current, ILocal newCurrent) {
+        this.setCurrentLocal(newCurrent);
     }
 
 
