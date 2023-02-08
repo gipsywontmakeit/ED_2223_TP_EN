@@ -8,6 +8,7 @@ public class GameSettingsPortal extends GameSettings implements IGameSettingsPor
         private int maxEnergy;
         private Players ownership;
 
+
         public GameSettingsPortal(int energy, int maxEnergy, Players ownership) {
             super(energy);
             this.maxEnergy = maxEnergy;

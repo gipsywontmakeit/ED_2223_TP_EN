@@ -90,7 +90,7 @@ public class GraphMap<T> extends Graph<T> implements GraphMapADT<T> {
 
 
 
-
+    /*
     public Iterator<T> iteratorShortestPath(T startVertex, T targetVertex) {
         int startIndex = getIndex(startVertex);
         int targetIndex = getIndex(targetVertex);
@@ -123,6 +123,7 @@ public class GraphMap<T> extends Graph<T> implements GraphMapADT<T> {
         }
         return shortestPath.iterator();
     }
+     */
 
 
 
