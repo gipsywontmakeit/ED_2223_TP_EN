@@ -11,7 +11,7 @@ public interface ILocalManagement {
     public Local getLocal(int id);
 
     public GraphMap<Local> getGraphMap();
-    public void addEdge(Local local1, Local local2);
+    public void addEdge(Local local1, Local local2, int weight);
     public void removeEdge(Local local1, Local local2);
 
 }

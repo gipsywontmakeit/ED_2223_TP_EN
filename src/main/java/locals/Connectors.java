@@ -56,7 +56,6 @@ public class Connectors extends Locals implements Connector {
         }
         interactionRecords.addToRear(new InteractionRecord(player, LocalDateTime.now()));
     }
-
 }
 
 

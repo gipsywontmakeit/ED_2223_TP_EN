@@ -14,10 +14,6 @@ import locals.*;
 import players.*;
 
 
-import players.PlayerInteractionLinkedList;
-import players.PlayerManager;
-
-import players.PlayerInteractionLinkedList;
 import players.PlayerManager;
 
 public class Main {
@@ -54,7 +50,7 @@ public class Main {
 
         localManagement.addLocal(portal);
         localManagement.addLocal(connector);
-        localManagement.addEdge(portal, connector);
+        localManagement.addEdge(portal, connector, 1);
 
         //graphMap.printAllVertices();
 

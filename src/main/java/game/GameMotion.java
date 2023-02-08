@@ -10,6 +10,8 @@ public class GameMotion {
     private ArrayUnorderedList<Connector> connectors;
     private ArrayUnorderedList<Portal> portals;
 
+
+
     public GameMotion(ArrayUnorderedList<Player> players, ArrayUnorderedList<Connector> connectors, ArrayUnorderedList<Portal> portals) {
         this.players = players;
         this.connectors = connectors;
