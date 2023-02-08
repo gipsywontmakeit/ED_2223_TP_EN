@@ -8,9 +8,7 @@ public class LocalManagement implements ILocalManagement {
 
     GraphMap<ILocal> graphMap;
 
-    public LocalManagement() {
-        this.graphMap = new GraphMap<>();
-    }
+    public LocalManagement() { this.graphMap = new GraphMap<>(); }
 
     @Override
     public void addLocal(ILocal local) {

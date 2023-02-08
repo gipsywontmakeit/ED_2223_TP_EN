@@ -33,4 +33,12 @@ public class GameSettingsPortal extends GameSettings implements IGameSettingsPor
         public void setOwner(Players owner) {
           this.ownership = owner;
         }
+
+    @Override
+    public String toString() {
+        return "GameSettingsPortal{" +
+                "maxEnergy=" + maxEnergy +
+                ", ownership=" + ownership +
+                '}';
+    }
 }

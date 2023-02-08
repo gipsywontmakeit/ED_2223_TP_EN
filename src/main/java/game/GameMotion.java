@@ -2,9 +2,11 @@ package game;
 
 
 import interfaces.IConnector;
+import interfaces.ILocal;
 import interfaces.IPlayer;
 import interfaces.IPortal;
 import lists.ArrayUnorderedList;
+import locals.Portals;
 import queues.LinkedQueue;
 import queues.QueueADT;
 
@@ -22,8 +24,6 @@ public class GameMotion {
         this.portals = portals;
     }
 
-    public void playerMoves(IPlayer player, IConnector fromConnector, IConnector toConnector) {
-    }
 
 
 }

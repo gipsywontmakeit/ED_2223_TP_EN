@@ -19,4 +19,11 @@ public class GameSettings implements IGameSettings {
     public void setEnergy(int energy) {
         this.energy = energy;
     }
+
+    @Override
+    public String toString() {
+        return "GameSettings{" +
+                "energy=" + energy +
+                '}';
+    }
 }

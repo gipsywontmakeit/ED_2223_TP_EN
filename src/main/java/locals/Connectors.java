@@ -56,6 +56,13 @@ public class Connectors extends Locals implements IConnector {
         }
         interactionRecords.addToRear(new InteractionRecord(player, LocalDateTime.now()));
     }
+
+    @Override
+    public String toString() {
+        return "Connectors{" +
+                "gameSettingsConnector=" + gameSettingsConnector +
+                '}';
+    }
 }
 
 

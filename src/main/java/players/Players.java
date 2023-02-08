@@ -16,6 +16,8 @@ public class Players implements IPlayer,Comparable<IPlayer> {
     private int level,experiencePoints,currentEnergy;
     private ILocal current;
 
+    public ILocal currentLocal;
+
     private ArrayUnorderedList<GameSettingsPortal> ownershipList;
 
     public Players(String name, Teams team, ILocal current) {
@@ -140,6 +142,18 @@ public class Players implements IPlayer,Comparable<IPlayer> {
     public void setCurrentEnergy(int currentEnergy) {
         this.currentEnergy = currentEnergy;
     }
+
+    public ILocal getCurrentLocal() {
+        return currentLocal;
+    }
+
+    public void setCurrentLocal(ILocal currentLocal) {
+        this.currentLocal = currentLocal;
+    }
+
+
+
+
 
     @Override
     public String toString() {
