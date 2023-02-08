@@ -1,24 +1,25 @@
 package game;
 
-import interfaces.Connector;
-import interfaces.Player;
-import interfaces.Portal;
+
+import interfaces.IConnector;
+import interfaces.IPlayer;
+import interfaces.IPortal;
 import lists.ArrayUnorderedList;
 
 public class GameMotion {
-    private ArrayUnorderedList<Player> players;
-    private ArrayUnorderedList<Connector> connectors;
-    private ArrayUnorderedList<Portal> portals;
+    private ArrayUnorderedList<IPlayer> players;
+    private ArrayUnorderedList<IConnector> connectors;
+    private ArrayUnorderedList<IPortal> portals;
 
 
 
-    public GameMotion(ArrayUnorderedList<Player> players, ArrayUnorderedList<Connector> connectors, ArrayUnorderedList<Portal> portals) {
+    public GameMotion(ArrayUnorderedList<IPlayer> players, ArrayUnorderedList<IConnector> connectors, ArrayUnorderedList<IPortal> portals) {
         this.players = players;
         this.connectors = connectors;
         this.portals = portals;
     }
 
-    public void playerMoves(Player player, Connector fromConnector, Connector toConnector) {
+    public void playerMoves(IPlayer player, IConnector fromConnector, IConnector toConnector) {
         
 
     }

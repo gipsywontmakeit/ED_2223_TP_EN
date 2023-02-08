@@ -33,9 +33,9 @@ public class LocalManagement implements ILocalManagement {
         return null;
     }
 
-    @Override
-    public void addEdge(Local local1, Local local2, int weight) {
+
     public void addEdge(ILocal local1, ILocal local2) {
+
         this.graphMap.addEdge(local1, local2);
     }
 

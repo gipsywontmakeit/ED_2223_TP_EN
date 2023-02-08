@@ -5,6 +5,8 @@ import exceptions.UnknownPathException;
 import graphs.Graph;
 import interfaces.NetworkADT;
 import lists.ArrayUnorderedList;
+import queues.LinkedQueue;
+import queues.QueueADT;
 
 
 public class Network<T> extends Graph<T> implements NetworkADT<T> {
@@ -64,6 +66,7 @@ public class Network<T> extends Graph<T> implements NetworkADT<T> {
 
         T[] previous = (T[]) new Object[vertices.size()];
 
-        PriorityQueue<T> queue = new PriorityQueue<>();
+        LinkedQueue<T> queue = new LinkedQueue<>();
+        return shortestPath;
     }
 }
