@@ -15,6 +15,9 @@ public class Main {
     public static void main(String[] args) throws IOException, ListIsEmptyException {
 
 
+
+
+
         menu menu = new menu();
         menu.startGame();
 

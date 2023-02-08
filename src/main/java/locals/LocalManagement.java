@@ -15,6 +15,7 @@ public class LocalManagement implements ILocalManagement {
     @Override
     public void addLocal(ILocal local) {
         this.graphMap.addVertex(local);
+
     }
 
 

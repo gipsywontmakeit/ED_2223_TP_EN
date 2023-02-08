@@ -1,7 +1,10 @@
 package json;
 
 import enums.Teams;
+import graphs.Graph;
 import lists.ArrayUnorderedList;
+import locals.LocalManagement;
+import locals.Locals;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -40,12 +43,12 @@ public class JsonFile {
         return false;
     }
 
-    public void addPlayer(PlayerManager playerManager) {
+    public void addPlayer(PlayerManager playerManager, LocalManagement localManagement) {
         if (data.exists()) {
             try {
                 jsonObject = (JSONObject) jsonParser.parse(new FileReader(data.getPath()));
-                JSONArray listaAdd = new JSONArray();
-                JSONArray lista = (JSONArray) jsonObject.get("players");
+                JSONArray listaAddPlayers = new JSONArray();
+                JSONArray listaplayers = (JSONArray) jsonObject.get("players");
                 var playersList = playerManager.getPlayersList();
                 for (Players player : playersList) {
                     JSONObject playerObject = new JSONObject();
@@ -56,13 +59,12 @@ public class JsonFile {
                     playerObject.put("experiencePoints", player.getExperiencePoints());
                     playerObject.put("current_Energy", player.getCurrentEnergy());
 
-                    listaAdd.add(playerObject);
+                    listaAddPlayers.add(playerObject);
                 }
-                jsonObject.put("players", listaAdd);
-                lista.add(listaAdd);
+                jsonObject.put("players", listaAddPlayers);
+                listaplayers.add(listaAddPlayers);
                 var addplayer = new JSONObject();
-                addplayer.put("players", lista);
-
+                addplayer.put("players", listaplayers);
                 fileWriter = new FileWriter(data.getPath());
                 fileWriter.write(jsonObject.toJSONString());
                 fileWriter.close();
@@ -85,7 +87,7 @@ public class JsonFile {
                     int level = ((Long) playerJson.get("level")).intValue();
                     int experiencePoints = ((Long) playerJson.get("experiencePoints")).intValue();
                     int currentEnergy = ((Long) playerJson.get("current_Energy")).intValue();
-                    Players player = new Players(name, getTeam(team), level, experiencePoints, currentEnergy);
+                    Players player = new Players(name, getTeam(team), level, experiencePoints, currentEnergy,null);
                     playersList.addToRear(player);
 
 

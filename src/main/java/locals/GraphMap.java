@@ -3,6 +3,7 @@ package locals;
 import graphs.Graph;
 import interfaces.GraphMapADT;
 import lists.ArrayUnorderedList;
+import players.Players;
 import queues.LinkedQueue;
 
 import java.util.Iterator;
@@ -14,10 +15,13 @@ public class GraphMap<T> extends Graph<T> implements GraphMapADT<T> {
 
     @Override
     public void updateVertex(T vertex, T newVertex) {
+
         int index = getIndex(vertex);
         if (index != -1) {
             vertices[index] = newVertex;
+
         }
+
     }
 
     @Override
@@ -71,6 +75,20 @@ public class GraphMap<T> extends Graph<T> implements GraphMapADT<T> {
         }
         return verticesList;
     }
+    public ArrayUnorderedList<T> getVertex(T vertex) {
+        ArrayUnorderedList<T> verticesList = new ArrayUnorderedList<>();
+        for (int i = 0; i < localManagement.getGraphMap().size(); i++) {
+            verticesList.addToRear(vertices[i]);
+        }
+        if (verticesList.contains(vertex)) {
+
+
+        }
+
+        return verticesList;
+    }
+
+
 
 
     public Iterator<T> iteratorShortestPath(T startVertex, T targetVertex) {

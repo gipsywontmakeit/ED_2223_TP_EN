@@ -3,26 +3,29 @@ package players;
 import enums.Teams;
 import game_settings.GameSettingsPortal;
 
+import interfaces.ILocal;
 import lists.ArrayUnorderedList;
 
 import interfaces.IPlayer;
-
+import locals.Locals;
 
 
 public class Players implements IPlayer,Comparable<IPlayer> {
     private String name;
     private Teams team;
     private int level,experiencePoints,currentEnergy;
+    private ILocal current;
 
     private ArrayUnorderedList<GameSettingsPortal> ownershipList;
 
-    public Players(String name, Teams team) {
+    public Players(String name, Teams team, ILocal current) {
         this.name = name;
         this.team = team;
         this.level = 1;
         this.experiencePoints = 0;
         this.currentEnergy = 100;
         this.ownershipList = new ArrayUnorderedList<GameSettingsPortal>();
+        this.current = current;
     }
 
     public Players(String name, Teams team, int level) {
@@ -34,13 +37,22 @@ public class Players implements IPlayer,Comparable<IPlayer> {
         this.ownershipList = new ArrayUnorderedList<GameSettingsPortal>();
     }
 
-    public Players(String name, Teams team, int level, int experiencePoints, int currentEnergy) {
+    public ILocal getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(ILocal current) {
+        this.current = current;
+    }
+
+    public Players(String name, Teams team, int level, int experiencePoints, int currentEnergy, Locals current) {
         this.name = name;
         this.team = team;
         this.level = level;
         this.experiencePoints = experiencePoints;
         this.currentEnergy = currentEnergy;
         this.ownershipList = new ArrayUnorderedList<GameSettingsPortal>();
+        this.current = null;
     }
 
 

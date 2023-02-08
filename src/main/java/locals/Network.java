@@ -7,9 +7,23 @@ import interfaces.NetworkADT;
 import lists.ArrayUnorderedList;
 import queues.LinkedQueue;
 import queues.QueueADT;
+import stacks.ArrayStack;
+import stacks.StackADT;
+
+import java.util.Iterator;
 
 
 public class Network<T> extends Graph<T> implements NetworkADT<T> {
+
+    @Override
+    public void addEdge(T vertex1, T vertex2, double weight) throws EmptyCollectionException {
+
+    }
+
+    @Override
+    public ArrayUnorderedList<T> shortestPathWeight(T vertex1, T vertex2) throws EmptyCollectionException, UnknownPathException {
+        return null;
+    }
 
     private class Edge<T> {
         private T vertex1;
@@ -43,30 +57,5 @@ public class Network<T> extends Graph<T> implements NetworkADT<T> {
         this.edges = new ArrayUnorderedList<>();
     }
 
-    @Override
-    public void addEdge(T vertex1, T vertex2, double weight) throws EmptyCollectionException {
-        Edge<T> edge = new Edge<>(vertex1, vertex2, weight);
-        edges.addToRear((T) edge);
-    }
 
-    @Override
-    public ArrayUnorderedList<T> shortestPathWeight(T vertex1, T vertex2) throws EmptyCollectionException, UnknownPathException {
-        ArrayUnorderedList<T> shortestPath = new ArrayUnorderedList<>();
-        if(!vertices.contains(vertex1) || !vertices.contains(vertex2)) {
-            throw new UnknownPathException("Unknown path");
-        }
-
-        double[] distances = new double[vertices.size()];
-        for (int i = 0; i < distances.length; i++) {
-            distances[i] = Double.MAX_VALUE;
-        }
-        distances[getIndex(vertex1)] = 0;
-
-        boolean visited[] = new boolean[vertices.size()];
-
-        T[] previous = (T[]) new Object[vertices.size()];
-
-        LinkedQueue<T> queue = new LinkedQueue<>();
-        return shortestPath;
-    }
 }
