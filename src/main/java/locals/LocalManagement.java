@@ -1,48 +1,45 @@
 package locals;
 
-import interfaces.Connector;
 import interfaces.ILocalManagement;
-import interfaces.Local;
-import interfaces.Portal;
-import lists.ArrayUnorderedList;
+import interfaces.ILocal;
 
 
 public class LocalManagement implements ILocalManagement {
 
-    GraphMap<Local> graphMap;
+    GraphMap<ILocal> graphMap;
 
     public LocalManagement() {
         this.graphMap = new GraphMap<>();
     }
 
     @Override
-    public void addLocal(Local local) {
+    public void addLocal(ILocal local) {
         this.graphMap.addVertex(local);
     }
 
 
     @Override
-    public void removeLocal(Local local) {
+    public void removeLocal(ILocal local) {
         this.graphMap.removeVertex(local);
     }
 
     @Override
-    public void updateLocal(Local oldLocal, Local newLocal) {
+    public void updateLocal(ILocal oldLocal, ILocal newLocal) {
         this.graphMap.updateVertex(oldLocal, newLocal);
     }
 
     @Override
-    public Local getLocal(int id) {
+    public ILocal getLocal(int id) {
         return null;
     }
 
     @Override
-    public void addEdge(Local local1, Local local2) {
+    public void addEdge(ILocal local1, ILocal local2) {
         this.graphMap.addEdge(local1, local2);
     }
 
     @Override
-    public void removeEdge(Local local1, Local local2) {
+    public void removeEdge(ILocal local1, ILocal local2) {
         this.graphMap.removeEdge(local1, local2);
     }
 
@@ -54,7 +51,7 @@ public class LocalManagement implements ILocalManagement {
     }
 
     @Override
-    public GraphMap<Local> getGraphMap() {
+    public GraphMap<ILocal> getGraphMap() {
         return this.graphMap;
     }
 

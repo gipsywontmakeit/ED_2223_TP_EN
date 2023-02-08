@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface Route {
+public interface IRoute {
     public int getFrom();
     public int getTo();
     public double getDistance();

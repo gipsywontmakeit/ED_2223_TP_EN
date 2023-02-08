@@ -2,9 +2,9 @@ package locals;
 
 import enums.LocalType;
 import interfaces.IGameSettingsPortal;
-import interfaces.Portal;
+import interfaces.IPortal;
 
-public class Portals extends Locals implements Portal {
+public class Portals extends Locals implements IPortal {
 
     private String name;
 

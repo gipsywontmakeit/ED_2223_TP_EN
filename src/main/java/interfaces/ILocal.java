@@ -2,7 +2,7 @@ package interfaces;
 
 import locals.Coordinates;
 
-public interface Local {
+public interface ILocal {
     int getId();
 
     void setId(int id);

@@ -1,10 +1,5 @@
-import enums.LocalType;
-import enums.Teams;
-import game_settings.GameSettingsConnector;
-import game_settings.GameSettingsPortal;
-import interfaces.Portal;
-
 import java.io.IOException;
+
 import java.time.LocalDateTime;
 
 import interfaces.*;
@@ -14,16 +9,14 @@ import locals.*;
 import players.*;
 
 
-import players.PlayerInteractionLinkedList;
-import players.PlayerManager;
 
-import players.PlayerInteractionLinkedList;
+import exceptions.ListIsEmptyException;
 import players.PlayerManager;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        JsonFile json = new JsonFile() ;
+    public static void main(String[] args) throws IOException, ListIsEmptyException {
         PlayerManager playerManager = new PlayerManager();
+
         GraphMap graphMap = new GraphMap();
         PlayerInteractionLinkedList playerInteractionLinkedList = new PlayerInteractionLinkedList();
 
@@ -67,6 +60,10 @@ public class Main {
 
         double distance = Haversine.haversine(lat1, lon1, lat2, lon2);
         System.out.println("The distance between the two points is: " + String.valueOf(distance).replace(".0", "") + " meters");
+
+
+        menu menu = new menu();
+        menu.startGame();
 
 
     }

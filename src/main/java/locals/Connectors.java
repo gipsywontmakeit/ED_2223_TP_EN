@@ -3,7 +3,7 @@ package locals;
 import enums.LocalType;
 import exceptions.CooldownTimeException;
 import game_settings.GameSettingsConnector;
-import interfaces.Connector;
+import interfaces.IConnector;
 import interfaces.IGameSettingsConnector;
 import lists.ArrayOrderedList;
 import lists.ArrayUnorderedList;
@@ -13,12 +13,12 @@ import players.Players;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Connectors extends Locals implements Connector {
+public class Connectors extends Locals implements IConnector {
 
     private IGameSettingsConnector gameSettingsConnector;
     private ArrayUnorderedList<InteractionRecord> interactionRecords;
 
-    private Connector lastInteraction;
+    private IConnector lastInteraction;
 
     /**
      * constructor of the classs
