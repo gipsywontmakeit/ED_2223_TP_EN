@@ -44,5 +44,12 @@ public class Portals extends Locals implements IPortal {
         this.gameSettingsPortal = gameSettingsPortal;
     }
 
+    @Override
+    public String toString() {
+        return "Portals{" +
+                "name='" + name + '\'' +
+                ", gameSettingsPortal=" + gameSettingsPortal +
+                '}';
+    }
 }
 

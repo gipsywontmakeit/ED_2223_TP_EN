@@ -3,6 +3,7 @@ package players;
 import enums.Teams;
 import game_settings.GameSettingsPortal;
 
+import interfaces.ILocal;
 import lists.ArrayUnorderedList;
 
 import interfaces.IPlayer;
@@ -13,6 +14,8 @@ public class Players implements IPlayer,Comparable<IPlayer> {
     private String name;
     private Teams team;
     private int level,experiencePoints,currentEnergy;
+
+    public ILocal currentLocal;
 
     private ArrayUnorderedList<GameSettingsPortal> ownershipList;
 
@@ -128,6 +131,18 @@ public class Players implements IPlayer,Comparable<IPlayer> {
     public void setCurrentEnergy(int currentEnergy) {
         this.currentEnergy = currentEnergy;
     }
+
+    public ILocal getCurrentLocal() {
+        return currentLocal;
+    }
+
+    public void setCurrentLocal(ILocal currentLocal) {
+        this.currentLocal = currentLocal;
+    }
+
+
+
+
 
     @Override
     public String toString() {

@@ -31,4 +31,12 @@ public class Coordinates implements ICoordinates {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
+
+    @Override
+    public String toString() {
+        return "Coordinates{" +
+                "latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
+    }
 }

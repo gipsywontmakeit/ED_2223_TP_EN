@@ -161,7 +161,6 @@ public class PlayerManager implements IPlayerManager {
      */
 
     public ArrayUnorderedList<Players> getPlayersList() {
-
         return playersList;
     }
 

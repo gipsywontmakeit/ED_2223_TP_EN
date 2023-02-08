@@ -21,6 +21,12 @@ public class GameSettingsConnector extends GameSettings implements IGameSettings
         this.cooldown = cooldown;
     }
 
+    @Override
+    public String toString() {
+        return "GameSettingsConnector{" +
+                "cooldown=" + cooldown +
+                '}';
+    }
 }
 
 
